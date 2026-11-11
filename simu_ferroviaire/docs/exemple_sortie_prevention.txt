@@ -1,0 +1,298 @@
+=== Simulateur de circulation ferroviaire ===
+Mode PREVENTION, 7 trains, 30 s, graine 1
+
+[PCC] Poste central demarre (pid 1035), 7 trains a surveiller
+[  0.001s] TGV 2401   -> quai   Gare de Nancy
+[  0.001s] TER 835A   -> quai   Gare de Metz
+[  0.001s] TER 835B   -> quai   Gare de Forbach
+[  0.001s] FRET 4410  -> quai   Triage de Woippy
+[  0.001s] TER 836    -> quai   Gare de Metz
+[  0.001s] TER 837    -> quai   Gare de Thionville
+[  0.001s] FRET 4520  -> quai   Triage de Woippy
+[  0.478s] TGV 2401   -> quai   Gare de Pont-a-Mousson
+[  0.751s] TER 837    -> quai   Gare de Metz
+[  0.771s] TER 835B   -> quai   Gare de Saint-Avold
+[  0.912s] TER 836    -> quai   Gare de Pont-a-Mousson
+[  0.943s] TER 835A   -> quai   Gare de Saint-Avold
+[  1.329s] FRET 4520  attend  Carrefour de Woippy            (occupe par : TER 837)
+[  1.417s] FRET 4410  attend  Carrefour de Woippy            (occupe par : TER 837)
+[  1.497s] TGV 2401   -> quai   Gare de Metz
+[  2.242s] FRET 4410  attend  Voie unique Metz-St-Avold      (occupe par : TER 835A)
+[  2.274s] FRET 4520  -> quai   Gare de Thionville
+[  2.402s] FRET 4410  attend  Raccordement Woippy            (occupe par : FRET 4520)
+[  2.456s] TER 835B   -> quai   Gare de Metz
+[  2.591s] TER 836    -> quai   Gare de Nancy
+[  2.873s] TGV 2401   attend  Carrefour de Woippy            (occupe par : FRET 4520)
+[  2.969s] TER 835A   -> quai   Gare de Forbach
+[  2.995s] TER 837    -> quai   Gare de Pont-a-Mousson
++----------------------------------------------------------------------------+
+| PCC - tableau de bord   t =    3.0s   mode = prevention                      |
++------------+------+-------------+-------------------------------+---------+
+| Train      | Prio | Etat        | Position                      | Trajets |
++------------+------+-------------+-------------------------------+---------+
+| TGV 2401   |    3 | EN ATTENTE  | Gare de Metz                  |       0 |
+| TER 835A   |    2 | en marche   | Gare de Forbach               |       0 |
+| TER 835B   |    2 | en marche   | Gare de Metz                  |       0 |
+| FRET 4410  |    1 | EN ATTENTE  | Aiguillage Metz-Est           |       0 |
+| TER 836    |    2 | en marche   | Gare de Nancy                 |       0 |
+| TER 837    |    2 | en marche   | Gare de Pont-a-Mousson        |       0 |
+| FRET 4520  |    1 | en marche   | Gare de Thionville            |       0 |
++------------+------+-------------+-------------------------------+---------+
+  Interblocages resolus : 0   Inversions de priorite : 0   Violations : 0
+
+[  3.246s] FRET 4410  attend  Carrefour de Woippy            (occupe par : FRET 4520)
+[  3.496s] TGV 2401   attend  Section Metz->Thionville       (occupe par : FRET 4520)
+[  3.528s] FRET 4410  attend  Aiguillage Metz-Est            (occupe par : TER 835B)
+[  4.004s] (!) inversion de priorite : TGV 2401 (prio 3) bloque sur Section Metz->Thionville par FRET 4520 (prio 1)
+[  4.031s] TER 836    -> quai   Gare de Pont-a-Mousson
+[  4.312s] FRET 4410  -> quai   Gare de Saint-Avold
+[  4.361s] TGV 2401   attend  Carrefour de Woippy            (occupe par : FRET 4410)
+[  4.556s] TER 837    -> quai   Gare de Nancy
+[  4.570s] TER 835A   -> quai   Gare de Saint-Avold
+[  5.004s] (!) inversion de priorite : TGV 2401 (prio 3) bloque sur Carrefour de Woippy par FRET 4410 (prio 1)
+[  5.156s] TER 835B   attend  Aiguillage Metz-Est            (occupe par : FRET 4410)
+[  5.407s] TER 836    -> quai   Gare de Metz
+[  5.668s] TGV 2401   -> quai   Gare de Thionville
+[  5.754s] (!) inversion de priorite : TER 835B (prio 2) bloque sur Aiguillage Metz-Est par FRET 4410 (prio 1)
+[  5.860s] TER 835B   attend  Voie unique Metz-St-Avold      (occupe par : FRET 4410)
+[  6.008s] FRET 4520  -> quai   Triage de Woippy
+[  6.194s] TER 835A   attend  Voie unique Metz-St-Avold      (occupe par : FRET 4410)
+[  6.288s] TER 837    -> quai   Gare de Pont-a-Mousson
+[  6.505s] (!) inversion de priorite : TER 835B (prio 2) bloque sur Voie unique Metz-St-Avold par FRET 4410 (prio 1)
+[  6.633s] TER 836    a boucle son itineraire (1)
+[  6.755s] (!) inversion de priorite : TER 835A (prio 2) bloque sur Voie unique Metz-St-Avold par FRET 4410 (prio 1)
+[  6.978s] TGV 2401   attend  Section Thionville->Metz       (occupe par : FRET 4520)
+[  7.319s] TGV 2401   attend  Carrefour de Woippy            (occupe par : FRET 4520)
+[  7.553s] TER 836    -> quai   Gare de Pont-a-Mousson
+[  7.641s] TER 835A   -> quai   Gare de Metz
+[  7.689s] TER 835B   attend  Aiguillage Metz-Est            (occupe par : TER 835A)
+[  7.701s] TGV 2401   -> quai   Gare de Metz
+[  7.739s] TER 837    attend  Gare de Metz                   (occupe par : TGV 2401, TER 835A, TER 835B)
++----------------------------------------------------------------------------+
+| PCC - tableau de bord   t =    8.0s   mode = prevention                      |
++------------+------+-------------+-------------------------------+---------+
+| Train      | Prio | Etat        | Position                      | Trajets |
++------------+------+-------------+-------------------------------+---------+
+| TGV 2401   |    3 | en marche   | Gare de Metz                  |       0 |
+| TER 835A   |    2 | en marche   | Gare de Metz                  |       0 |
+| TER 835B   |    2 | EN ATTENTE  | Aiguillage Metz-Est           |       0 |
+| FRET 4410  |    1 | en marche   | Gare de Saint-Avold           |       0 |
+| TER 836    |    2 | en marche   | Gare de Pont-a-Mousson        |       1 |
+| TER 837    |    2 | EN ATTENTE  | Aiguillage Metz-Sud           |       0 |
+| FRET 4520  |    1 | en marche   | Triage de Woippy              |       0 |
++------------+------+-------------+-------------------------------+---------+
+  Interblocages resolus : 0   Inversions de priorite : 5   Violations : 0
+
+[  8.512s] FRET 4520  a boucle son itineraire (1)
+[  8.530s] FRET 4410  -> quai   Gare de Forbach
+[  9.041s] TGV 2401   attend  Gare de Pont-a-Mousson         (occupe par : TER 836, TER 837)
+[  9.142s] TER 835A   a boucle son itineraire (1)
+[  9.277s] TER 835B   -> quai   Gare de Saint-Avold
+[  9.286s] TER 837    -> quai   Gare de Metz
+[  9.308s] TER 836    -> quai   Gare de Nancy
+[  9.323s] TGV 2401   attend  Aiguillage Metz-Sud            (occupe par : TER 837)
+[  9.756s] (!) inversion de priorite : TGV 2401 (prio 3) bloque sur Aiguillage Metz-Sud par TER 837 (prio 2)
+[  9.765s] FRET 4520  -> quai   Gare de Thionville
+[ 10.005s] TER 835A   attend  Voie unique Metz-St-Avold      (occupe par : TER 835B)
+[ 10.509s] TGV 2401   -> quai   Gare de Pont-a-Mousson
+[ 10.890s] TER 835A   -> quai   Gare de Saint-Avold
+[ 10.905s] TER 836    -> quai   Gare de Pont-a-Mousson
+[ 11.056s] FRET 4410  attend  Gare de Saint-Avold            (occupe par : TER 835A, TER 835B)
+[ 11.328s] TER 835B   attend  Gare de Forbach                (occupe par : FRET 4410)
+[ 11.339s] TER 837    attend  Section Metz->Thionville       (occupe par : FRET 4520)
+[ 11.585s] TGV 2401   -> quai   Gare de Nancy
+[ 11.759s] (!) inversion de priorite : TER 835B (prio 2) bloque sur Gare de Forbach par FRET 4410 (prio 1)
+[ 11.759s] (!) inversion de priorite : TER 837 (prio 2) bloque sur Section Metz->Thionville par FRET 4520 (prio 1)
+[ 12.068s] TGV 2401   a boucle son itineraire (1)
+[ 12.447s] TER 836    -> quai   Gare de Metz
+[ 12.497s] TGV 2401   -> quai   Gare de Pont-a-Mousson
+[ 12.726s] TER 837    -> quai   Gare de Thionville
++----------------------------------------------------------------------------+
+| PCC - tableau de bord   t =   13.0s   mode = prevention                      |
++------------+------+-------------+-------------------------------+---------+
+| Train      | Prio | Etat        | Position                      | Trajets |
++------------+------+-------------+-------------------------------+---------+
+| TGV 2401   |    3 | en marche   | Gare de Pont-a-Mousson        |       1 |
+| TER 835A   |    2 | en marche   | Gare de Saint-Avold           |       1 |
+| TER 835B   |    2 | EN ATTENTE  | Voie unique St-Avold-Forbach  |       0 |
+| FRET 4410  |    1 | EN ATTENTE  | Voie unique St-Avold-Forbach  |       0 |
+| TER 836    |    2 | en marche   | Gare de Metz                  |       1 |
+| TER 837    |    2 | en marche   | Gare de Thionville            |       0 |
+| FRET 4520  |    1 | en marche   | Gare de Thionville            |       1 |
++------------+------+-------------+-------------------------------+---------+
+  Interblocages resolus : 0   Inversions de priorite : 8   Violations : 0
+
+[ 13.031s] TER 835A   attend  Gare de Forbach                (occupe par : FRET 4410)
+[ 13.398s] TGV 2401   attend  Aiguillage Metz-Sud            (occupe par : TER 836)
+[ 13.465s] TER 836    a boucle son itineraire (2)
+[ 13.509s] *** INTERBLOCAGE DETECTE (#1) - cycle d'attente :
+             TER 835A   attend Gare de Forbach                detenu par FRET 4410
+             TER 835B   attend Gare de Forbach                detenu par FRET 4410
+             FRET 4410  attend Gare de Saint-Avold            detenu par TER 835A, TER 835B
+             => ordre de degagement envoye a FRET 4410 (priorite 1, la plus faible)
+[ 13.509s] (!) inversion de priorite : TER 835A (prio 2) bloque sur Gare de Forbach par FRET 4410 (prio 1)
+[ 13.511s] FRET 4410  se degage sur une voie de garage (ordre du PCC)
+[ 13.520s] TER 835B   -> quai   Gare de Forbach
+[ 13.558s] TGV 2401   -> quai   Gare de Metz
+[ 13.614s] TER 835A   attend  Voie unique St-Avold-Forbach   (occupe par : TER 835B)
+[ 13.690s] FRET 4520  -> quai   Triage de Woippy
+[ 13.909s] TER 837    a boucle son itineraire (1)
+[ 14.394s] TER 836    -> quai   Gare de Pont-a-Mousson
+[ 14.602s] TER 835B   a boucle son itineraire (1)
+[ 14.619s] TER 835A   attend  Gare de Forbach                (occupe par : TER 835B)
+[ 14.645s] TER 837    attend  Section Thionville->Metz       (occupe par : FRET 4520)
+[ 14.664s] FRET 4410  quitte la voie de garage
+[ 14.664s] FRET 4410  -> quai   Gare de Saint-Avold
+[ 14.739s] TER 835A   attend  Voie unique St-Avold-Forbach   (occupe par : FRET 4410)
+[ 14.862s] TGV 2401   attend  Carrefour de Woippy            (occupe par : FRET 4520)
+[ 15.168s] TER 837    attend  Carrefour de Woippy            (occupe par : FRET 4520)
+[ 15.260s] (!) inversion de priorite : TER 835A (prio 2) bloque sur Voie unique St-Avold-Forbach par FRET 4410 (prio 1)
+[ 15.492s] TER 835B   attend  Voie unique St-Avold-Forbach   (occupe par : FRET 4410)
+[ 15.546s] TGV 2401   -> quai   Gare de Thionville
+[ 15.851s] TER 837    -> quai   Gare de Metz
+[ 15.906s] TER 836    -> quai   Gare de Nancy
+[ 16.010s] (!) inversion de priorite : TER 835B (prio 2) bloque sur Voie unique St-Avold-Forbach par FRET 4410 (prio 1)
+[ 16.316s] FRET 4520  a boucle son itineraire (2)
+[ 16.349s] TER 835A   attend  Gare de Forbach                (occupe par : TER 835B)
+[ 16.397s] TER 835B   attend  Gare de Saint-Avold            (occupe par : TER 835A, FRET 4410)
+[ 17.010s] (!) inversion de priorite : TER 835B (prio 2) bloque sur Gare de Saint-Avold par FRET 4410 (prio 1)
+[ 17.113s] TGV 2401   attend  Carrefour de Woippy            (occupe par : TER 837)
+[ 17.274s] TGV 2401   -> quai   Gare de Metz
+[ 17.281s] FRET 4410  attend  Carrefour de Woippy            (occupe par : TGV 2401)
+[ 17.468s] FRET 4520  attend  Carrefour de Woippy            (occupe par : TGV 2401)
+[ 17.553s] TER 836    -> quai   Gare de Pont-a-Mousson
++----------------------------------------------------------------------------+
+| PCC - tableau de bord   t =   18.0s   mode = prevention                      |
++------------+------+-------------+-------------------------------+---------+
+| Train      | Prio | Etat        | Position                      | Trajets |
++------------+------+-------------+-------------------------------+---------+
+| TGV 2401   |    3 | en marche   | Gare de Metz                  |       1 |
+| TER 835A   |    2 | EN ATTENTE  | Voie unique St-Avold-Forbach  |       1 |
+| TER 835B   |    2 | EN ATTENTE  | Voie unique St-Avold-Forbach  |       1 |
+| FRET 4410  |    1 | EN ATTENTE  | Aiguillage Metz-Est           |       0 |
+| TER 836    |    2 | en marche   | Gare de Pont-a-Mousson        |       2 |
+| TER 837    |    2 | en marche   | Gare de Metz                  |       1 |
+| FRET 4520  |    1 | EN ATTENTE  | Raccordement Woippy           |       2 |
++------------+------+-------------+-------------------------------+---------+
+  Interblocages resolus : 1   Inversions de priorite : 12   Violations : 0
+
+[ 18.072s] TER 837    -> quai   Gare de Pont-a-Mousson
+[ 18.313s] FRET 4520  -> quai   Gare de Thionville
+[ 18.838s] TGV 2401   attend  Section Metz->PaM              (occupe par : TER 837)
+[ 18.980s] TER 836    -> quai   Gare de Metz
+[ 19.040s] TGV 2401   attend  Aiguillage Metz-Sud            (occupe par : TER 836)
+[ 19.513s] (!) inversion de priorite : TGV 2401 (prio 3) bloque sur Aiguillage Metz-Sud par TER 836 (prio 2)
+[ 19.597s] FRET 4410  -> quai   Triage de Woippy
+[ 19.657s] TER 835B   -> quai   Gare de Saint-Avold
+[ 19.668s] TER 835A   attend  Voie unique St-Avold-Forbach   (occupe par : TER 835B)
+[ 19.720s] TER 837    -> quai   Gare de Nancy
+[ 20.055s] TER 836    a boucle son itineraire (3)
+[ 20.105s] TGV 2401   -> quai   Gare de Pont-a-Mousson
+[ 20.895s] TER 835A   -> quai   Gare de Forbach
+[ 21.057s] TER 836    -> quai   Gare de Pont-a-Mousson
+[ 21.343s] TGV 2401   -> quai   Gare de Nancy
+[ 21.442s] TER 835B   attend  Voie unique Metz-St-Avold      (occupe par : FRET 4410)
+[ 21.583s] TER 835B   attend  Aiguillage Metz-Est            (occupe par : FRET 4410)
+[ 21.596s] TER 837    -> quai   Gare de Pont-a-Mousson
+[ 21.844s] TER 835B   -> quai   Gare de Metz
+[ 21.920s] FRET 4520  attend  Carrefour de Woippy            (occupe par : FRET 4410)
+[ 21.962s] TGV 2401   a boucle son itineraire (2)
+[ 22.363s] FRET 4520  attend  Raccordement Woippy            (occupe par : FRET 4410)
+[ 22.581s] TGV 2401   attend  Section Nancy->PaM             (occupe par : TER 837)
+[ 22.630s] TER 836    -> quai   Gare de Nancy
+[ 22.662s] TGV 2401   -> quai   Gare de Pont-a-Mousson
+[ 22.873s] TER 835A   -> quai   Gare de Saint-Avold
++----------------------------------------------------------------------------+
+| PCC - tableau de bord   t =   23.0s   mode = prevention                      |
++------------+------+-------------+-------------------------------+---------+
+| Train      | Prio | Etat        | Position                      | Trajets |
++------------+------+-------------+-------------------------------+---------+
+| TGV 2401   |    3 | en marche   | Gare de Pont-a-Mousson        |       2 |
+| TER 835A   |    2 | en marche   | Gare de Saint-Avold           |       1 |
+| TER 835B   |    2 | en marche   | Gare de Metz                  |       1 |
+| FRET 4410  |    1 | en marche   | Triage de Woippy              |       0 |
+| TER 836    |    2 | en marche   | Gare de Nancy                 |       3 |
+| TER 837    |    2 | en marche   | Gare de Pont-a-Mousson        |       1 |
+| FRET 4520  |    1 | EN ATTENTE  | Carrefour de Woippy           |       2 |
++------------+------+-------------+-------------------------------+---------+
+  Interblocages resolus : 1   Inversions de priorite : 13   Violations : 0
+
+[ 23.131s] FRET 4410  a boucle son itineraire (1)
+[ 23.147s] FRET 4520  -> quai   Triage de Woippy
+[ 23.277s] TER 837    -> quai   Gare de Metz
+[ 23.476s] TGV 2401   attend  Section PaM->Metz              (occupe par : TER 837)
+[ 24.016s] (!) inversion de priorite : TGV 2401 (prio 3) bloque sur Section PaM->Metz par TER 837 (prio 2)
+[ 24.266s] TER 835B   -> quai   Gare de Saint-Avold
+[ 24.420s] TGV 2401   attend  Aiguillage Metz-Sud            (occupe par : TER 837)
+[ 24.421s] TER 836    -> quai   Gare de Pont-a-Mousson
+[ 24.493s] TER 835A   attend  Voie unique Metz-St-Avold      (occupe par : TER 835B)
+[ 24.622s] TGV 2401   -> quai   Gare de Metz
+[ 24.848s] FRET 4410  attend  Raccordement Woippy            (occupe par : FRET 4520)
+[ 25.449s] TER 837    -> quai   Gare de Thionville
+[ 25.730s] FRET 4520  a boucle son itineraire (3)
+[ 25.893s] FRET 4410  attend  Gare de Saint-Avold            (occupe par : TER 835A, TER 835B)
+[ 25.920s] TGV 2401   attend  Section Metz->Thionville       (occupe par : TER 837)
+[ 25.981s] TER 835A   -> quai   Gare de Metz
+[ 26.034s] FRET 4410  attend  Aiguillage Metz-Est            (occupe par : TER 835A)
+[ 26.099s] TER 836    -> quai   Gare de Metz
+[ 26.495s] TER 835B   -> quai   Gare de Forbach
+[ 26.516s] (!) inversion de priorite : TGV 2401 (prio 3) bloque sur Section Metz->Thionville par TER 837 (prio 2)
+[ 26.957s] TER 837    a boucle son itineraire (2)
+[ 26.965s] TGV 2401   -> quai   Gare de Thionville
+[ 26.979s] FRET 4410  attend  Carrefour de Woippy            (occupe par : TGV 2401)
+[ 27.019s] FRET 4520  attend  Carrefour de Woippy            (occupe par : TGV 2401)
+[ 27.139s] FRET 4410  attend  Aiguillage Metz-Est            (occupe par : TER 835A)
+[ 27.200s] FRET 4520  attend  Section Metz->Thionville       (occupe par : TGV 2401)
+[ 27.452s] TER 836    a boucle son itineraire (4)
+[ 27.490s] TER 835A   a boucle son itineraire (2)
+[ 27.555s] TER 837    -> quai   Gare de Metz
+[ 27.602s] FRET 4410  attend  Carrefour de Woippy            (occupe par : TER 837)
+[ 27.627s] TER 835B   a boucle son itineraire (2)
+[ 27.662s] FRET 4520  attend  Carrefour de Woippy            (occupe par : TER 837)
++----------------------------------------------------------------------------+
+| PCC - tableau de bord   t =   28.0s   mode = prevention                      |
++------------+------+-------------+-------------------------------+---------+
+| Train      | Prio | Etat        | Position                      | Trajets |
++------------+------+-------------+-------------------------------+---------+
+| TGV 2401   |    3 | en marche   | Gare de Thionville            |       2 |
+| TER 835A   |    2 | en marche   | Gare de Metz                  |       2 |
+| TER 835B   |    2 | en marche   | Gare de Forbach               |       2 |
+| FRET 4410  |    1 | EN ATTENTE  | Raccordement Woippy           |       1 |
+| TER 836    |    2 | en marche   | Gare de Metz                  |       4 |
+| TER 837    |    2 | en marche   | Gare de Metz                  |       2 |
+| FRET 4520  |    1 | EN ATTENTE  | Raccordement Woippy           |       3 |
++------------+------+-------------+-------------------------------+---------+
+  Interblocages resolus : 1   Inversions de priorite : 15   Violations : 0
+
+[ 28.091s] TGV 2401   attend  Section Thionville->Metz       (occupe par : TER 837)
+[ 28.473s] TER 836    -> quai   Gare de Pont-a-Mousson
+[ 28.493s] TER 835B   -> quai   Gare de Saint-Avold
+[ 28.516s] (!) inversion de priorite : TGV 2401 (prio 3) bloque sur Section Thionville->Metz par TER 837 (prio 2)
+[ 28.582s] TER 835A   -> quai   Gare de Saint-Avold
+[ 28.594s] TGV 2401   attend  Carrefour de Woippy            (occupe par : TER 837)
+[ 28.916s] TGV 2401   -> quai   Gare de Metz
+[ 29.835s] TER 837    -> quai   Gare de Pont-a-Mousson
+[ 29.876s] FRET 4520  -> quai   Gare de Thionville
+[ 29.935s] FRET 4410  attend  Raccordement Woippy            (occupe par : FRET 4520)
+
+==================== BILAN DU POSTE CENTRAL ====================
+Duree : 30.1s   Mode : prevention   Evenements recus : 1520
+
+Train      Prio   Trajets Attentes    Moy. (ms)     Max (ms)  Garages
+TGV 2401   3            2       15          600         1307        0
+TER 835A   2            2        6         1277         1610        0
+TER 835B   2            2        7         1293         3260        0
+FRET 4410  1            1        8         1089         2455        1
+TER 836    2            4        0            0            0        0
+TER 837    2            2        4         1035         1547        0
+FRET 4520  1            3        6          902         2214        0
+
+Trajets complets           : 16
+Interblocages resolus      : 1
+Inversions de priorite     : 16
+Alertes de famine          : 0
+Erreurs de protocole       : 0
+Violations de securite     : 0  (aucune collision)
+Ressources encore occupees : 0
+
+Simulation terminee (code PCC = 0)
