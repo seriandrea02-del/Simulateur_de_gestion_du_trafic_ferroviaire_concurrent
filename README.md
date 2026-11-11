@@ -1,9 +1,17 @@
 # Simulateur de circulation ferroviaire multithread
 
-Projet de programmation concurrente en C (POSIX) : plusieurs trains
-circulent **simultanément** sur un réseau composé de voies, de gares, de
-zones, d'aiguillages et de carrefours. Le problème central : **deux trains ne
-doivent jamais occuper en même temps une même section de voie**.
+Développement en C sous Linux d’un simulateur de circulation ferroviaire dans lequel plusieurs trains (TGV, TER et FRET) circulent simultanément sur un réseau composé de gares, de voies simples et doubles et d’aiguillages.
+
+Le système gère les déplacements des trains, l’accès aux voies, les priorités de circulation et les situations de blocage afin de garantir une circulation sans conflit.
+
+**Fonctionnement**
+
+Chaque train évolue indépendamment et demande l’accès aux voies nécessaires à son itinéraire. Un poste de contrôle central surveille le trafic, reçoit les informations des trains et intervient en cas de blocage.
+
+**Deux stratégies sont étudiées :**
+
+* Détection : identifier les trains bloqués et libérer les ressources nécessaires pour rétablir la circulation.
+* Prévention
 
 ## Compilation et exécution
 
