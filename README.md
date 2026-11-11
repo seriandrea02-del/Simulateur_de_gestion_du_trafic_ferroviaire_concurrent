@@ -11,7 +11,7 @@ Chaque train évolue indépendamment et demande l’accès aux voies nécessaire
 **Deux stratégies sont étudiées :**
 
 * Détection : identifier les trains bloqués et libérer les ressources nécessaires pour rétablir la circulation.
-* Prévention
+* Prévention:     vérifier la disponibilité des voies avant d’autoriser un train à poursuivre son trajet.
 
 ## Compilation et exécution
 
